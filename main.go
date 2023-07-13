@@ -7,11 +7,12 @@ import (
 	"net/http"
 	"orm/auth"
 	"orm/middleware"
+
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	
+
 	"github.com/jinzhu/gorm"
-	
+
 	_ "github.com/lib/pq" // add this
 )
 
@@ -163,6 +164,6 @@ func seederUser(db *gorm.DB) {
 func main() {
 	r := setupRouter()
 
-	r.Run(":8080")
+	r.Run()
 
 }

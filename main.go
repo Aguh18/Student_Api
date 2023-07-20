@@ -7,6 +7,7 @@ import (
 	"net/http"
 	"orm/auth"
 	"orm/middleware"
+	"os"
 
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
@@ -98,7 +99,7 @@ func setupRouter() *gin.Engine {
 		log.Fatal("Error loading .env file")
 	}
 
-	conn := "postgresql://aguh:7ermaniS.@127.0.0.1/guhh?sslmode=disable"
+	conn := os.Getenv("POSTGRES_URL")
 	db, err := gorm.Open("postgres", conn)
 	if err != nil {
 		log.Fatal(err)
